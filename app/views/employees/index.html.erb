@@ -18,7 +18,7 @@
         <tbody class="divide-y divide-slate-200 bg-white">
           <% @employees.each do |employee| %>
             <tr class="hover:bg-slate-50/80 transition-colors">
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900"><%= employee.name %></td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900"><%= employee.full_name %></td>
               <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600"><%= number_to_currency(employee.salary, unit: "฿") %></td>
               <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600"><%= employee.position %></td>
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm">
