@@ -1,2 +1,8 @@
-<h1>Employees#show</h1>
-<p>Find me in app/views/employees/show.html.erb</p>
+<h1><%= @employee.name %></h1>
+
+<p><strong>เงินเดือน:</strong> <%= number_to_currency(@employee.salary, unit: "฿") %></p>
+<p><strong>ตำแหน่ง:</strong> <%= @employee.position %></p>
+
+<%= link_to "แก้ไข", edit_employee_path(@employee) %>
+<%= link_to "กลับรายการ", employees_path %>
+<%= button_to "ลบ", @employee, method: :delete, data: { turbo_confirm: "ต้องการลบหรือไม่?" } %>

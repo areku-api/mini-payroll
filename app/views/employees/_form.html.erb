@@ -1,0 +1,31 @@
+<%= form_with model: @employee do |form| %>
+    <% if @employee.errors.any? %>
+      <div>
+        <h2><%= @employee.errors.count %> ข้อผิดพลาด</h2>
+        <ul>
+          <% @employee.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div>
+      <%= form.label :name, "ชื่อ" %>
+      <%= form.text_field :name %>
+    </div>
+  
+    <div>
+      <%= form.label :salary, "เงินเดือน" %>
+      <%= form.number_field :salary, step: 500 %>
+    </div>
+  
+    <div>
+      <%= form.label :position, "ตำแหน่ง" %>
+      <%= form.text_field :position %>
+    </div>
+  
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
