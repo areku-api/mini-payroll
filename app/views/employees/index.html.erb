@@ -1,2 +1,26 @@
-<h1>Employees#index</h1>
-<p>Find me in app/views/employees/index.html.erb</p>
+<h1>รายชื่อพนักงาน</h1>
+
+<%= link_to "เพิ่มพนักงาน", new_employee_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>ชื่อ</th>
+      <th>เงินเดือน</th>
+      <th>ตำแหน่ง</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.name %></td>
+        <td><%= number_to_currency(employee.salary, unit: "฿") %></td>
+        <td><%= employee.position %></td>
+        <td><%= link_to "ดู", employee %></td>
+        <td><%= link_to "แก้ไข", edit_employee_path(employee) %></td>
+        <td><%= button_to "ลบ", employee, method: :delete, data: { turbo_confirm: "ต้องการลบหรือไม่?" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
