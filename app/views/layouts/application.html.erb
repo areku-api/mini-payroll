@@ -19,13 +19,18 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <nav>
-      <%= link_to "Mini Payroll", root_path %> | <%= link_to "พนักงาน", employees_path %>
+  <body class="min-h-screen bg-slate-100 text-slate-900">
+    <nav class="bg-white border-b border-slate-200 px-4 py-3 shadow-sm">
+      <div class="max-w-4xl mx-auto flex items-center gap-4">
+        <%= link_to "Mini Payroll", root_path, class: "font-semibold text-slate-800 hover:text-emerald-600 transition-colors" %>
+        <span class="text-slate-300">|</span>
+        <%= link_to "พนักงาน", employees_path, class: "text-slate-600 hover:text-emerald-600 transition-colors" %>
+      </div>
     </nav>
     <%= yield %>
   </body>
